@@ -699,9 +699,11 @@ body {
 .badge { font-size: 0.65rem; background: var(--danger); color: white; padding: 2px 6px; border-radius: 4px; margin-left: auto; font-weight: 800; }
 
 .btn-buy { 
-    margin-top: auto; padding: 15px; border-radius: 12px; font-weight: 800; text-decoration: none; 
+    /* margin-top: auto; -> DIHAPUS karena bertabrakan dengan .action-buttons */
+    padding: 15px; border-radius: 12px; font-weight: 800; text-decoration: none; 
     color: white; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); 
     transition: 0.3s; 
+    position: relative;
 }
 .btn-buy:hover { background: white; color: var(--bg-dark); }
 .rank-mvp .btn-buy { background: var(--gold); color: var(--bg-dark); border: none; }
@@ -1123,6 +1125,8 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
     flex-direction: column;
     gap: 8px;
     width: 100%;
+    position: relative; /* FIX: Wajib ada agar z-index aktif */
+    z-index: 10; /* FIX: Mencegah tombol tertutup layer 3D dari js-tilt */
 }
 .btn-claim {
     padding: 12px;
