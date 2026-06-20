@@ -1381,3 +1381,86 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
     0% { transform: scale(0.5); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
+
+
+/* =========================================
+   FIX FINAL: KOTAK IP KEMBALI & ANTI KEPOTONG
+   ========================================= */
+.revine-ips-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.revine-ip-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.revine-edition-title {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: var(--primary) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.revine-bedrock-flex {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Otomatis geser ke bawah kalau dibuka di HP sempit */
+}
+
+.revine-bedrock-ip {
+    flex: 2;
+    min-width: 250px; /* Kasih ruang lega biar play.revinesmp.com GAK KEPOTONG */
+}
+
+.revine-bedrock-port {
+    flex: 1;
+    min-width: 100px;
+    justify-content: center;
+}
+
+.revine-full-text {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important; /* Paksa ilangin titik-titik (ellipsis) sialan itu */
+    font-size: 1.1rem !important;
+}
+
+/* Responsif: Balikin ukuran normal di layar HP */
+@media (max-width: 992px) {
+    .status-card.glass-panel[style*="grid-column: span 2"] {
+        grid-column: span 1 !important;
+    }
+}
+
+
+/* =========================================
+   FIX FINAL HP: IP ANTI KEPOTONG
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Kecilin teks IP di layar HP biar masuk ke dalam kotak */
+    .revine-full-text {
+        font-size: 0.85rem !important; /* Ukuran font dikecilin biar pas */
+        white-space: normal !important; /* Teks dibolehin turun ke bawah kalau mentok */
+        word-break: break-word !important; /* Amanin supaya nggak bablas nabrak ikon copy */
+        line-height: 1.5 !important;
+    }
+
+    /* 2. Kurangi ketebalan padding kotak biar area teks makin lega */
+    .ip-display.hover-glow {
+        padding: 12px 15px !important;
+    }
+
+    /* 3. Pastikan Bedrock IP & Port numpuk rapi ke bawah, gak maksa ke samping */
+    .revine-bedrock-ip, .revine-bedrock-port {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+    }
+}
