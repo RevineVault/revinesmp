@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ====================================================================
     // UBAH VARIABEL INI UNTUK MENGATUR STATUS WEB (true = nyala, false = mati)
     const SERVER_CONFIG = {
-        isOnline: false,             
+        isOnline: true,             
         onlineText: "ONLINE",
         offlineText: "OFFLINE"
     };
